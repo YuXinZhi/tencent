@@ -21,6 +21,7 @@ class TencentpositionSpider(scrapy.Spider):
             item['positionlink'] = each.xpath('./td[1]/a/@href').extract()[0]
             # 职位类型
             positiontype = each.xpath('./td[2]/text()').extract()
+            #职位类别可能为空
             if positiontype:
                 item['positiontype'] = positiontype[0]
             else:
